@@ -1,0 +1,155 @@
+<templateSet group="OpenAPI">
+  <template name="ref" value="@OA\Property(property=&quot;$NAME$&quot;, ref=&quot;#/components/schemas/$AUTOCOMPLETE$&quot;)" description="Property REF" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="AUTOCOMPLETE" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="num" value="@OA\Property(property=&quot;$NAME$&quot;, type=&quot;number&quot;, format=&quot;$FORMAT$&quot;, nullable=$NULLABLE$, minimum=&quot;$MINIMUM$&quot;, maximum=&quot;$MAXIMUM$&quot;, example=&quot;$EXAMPLE$&quot;$SUGGESTIONS$)" description="Property NUMERIC" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="FORMAT" expression="enum(&quot;float&quot;,&quot;double&quot;)" defaultValue="" alwaysStopAt="false" />
+    <variable name="NULLABLE" expression="enum(&quot;true&quot;,&quot;false&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="MINIMUM" expression="" defaultValue="&quot;0.0&quot;" alwaysStopAt="false" />
+    <variable name="MAXIMUM" expression="" defaultValue="&quot;1000.0&quot;" alwaysStopAt="false" />
+    <variable name="EXAMPLE" expression="" defaultValue="&quot;1.23&quot;" alwaysStopAt="false" />
+    <variable name="SUGGESTIONS" expression="enum(&quot;&quot;,&quot;, multipleOf=\&quot;0.1\&quot;&quot;,&quot;, exclusiveMinimim=\&quot;false\&quot;&quot;, &quot;, exclusiveMaximum=\&quot;false\&quot;&quot;)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="int" value="@OA\Property(property=&quot;$NAME$&quot;, type=&quot;number&quot;, format=&quot;$FORMAT$&quot;, nullable=$NULLABLE$, minimum=&quot;$MINIMUM$&quot;, maximum=&quot;$MAXIMUM$&quot;, example=&quot;$EXAMPLE$&quot;$SUGGESTIONS$)" description="Property INTEGER" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="FORMAT" expression="" defaultValue="&quot;int32&quot;" alwaysStopAt="false" />
+    <variable name="NULLABLE" expression="enum(&quot;true&quot;,&quot;false&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="MAXIMUM" expression="" defaultValue="1000" alwaysStopAt="false" />
+    <variable name="MINIMUM" expression="" defaultValue="&quot;1000&quot;" alwaysStopAt="false" />
+    <variable name="EXAMPLE" expression="" defaultValue="&quot;123&quot;" alwaysStopAt="false" />
+    <variable name="SUGGESTIONS" expression="enum(&quot;&quot;,&quot;, multipleOf=\&quot;10\&quot;&quot;,&quot;, exclusiveMinimim=\&quot;false\&quot;&quot;, &quot;, exclusiveMaximum=\&quot;false\&quot;&quot;)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="str" value="@OA\Property(property=&quot;$NAME$&quot;, type=&quot;string&quot;, format=&quot;$FORMAT$&quot;, nullable=$NULLABLE$, minLength=&quot;$MINIMUM$&quot;, maxLength=&quot;$MAXIMUM$&quot;, example=&quot;A $EXAMPLE$&quot;)" description="STRING property" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="FORMAT" expression="enum(&quot;&quot;,&quot;email&quot;,&quot;uri&quot;,&quot;hostname&quot;,&quot;password&quot;,&quot;uuid&quot;,&quot;byte&quot;,&quot;binary&quot;)" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+    <variable name="NULLABLE" expression="enum(&quot;false&quot;,&quot;true&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="MINIMUM" expression="" defaultValue="&quot;1&quot;" alwaysStopAt="false" />
+    <variable name="MAXIMUM" expression="" defaultValue="&quot;100&quot;" alwaysStopAt="false" />
+    <variable name="EXAMPLE" expression="spaceSeparated(NAME)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="date" value="@OA\Property(property=&quot;$NAME$&quot;, type=&quot;string&quot;, format=&quot;$FORMAT$&quot;, nullable=$NULLABLE$, example=&quot;$EXAMPLE$&quot;)" description="Property DATE" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="FORMAT" expression="enum(&quot;date-time&quot;,&quot;date&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="NULLABLE" expression="enum(&quot;true&quot;,&quot;false&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="EXAMPLE" expression="enum(&quot;2021-01-01 23:59:59&quot;,&quot;2021-01-01&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="bool" value="@OA\Property(property=&quot;$NAME$&quot;, type=&quot;boolean&quot;, example=true) " description="Property BOOLEAN" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="arr" value="@OA\Property(property=&quot;$NAME$&quot;, type=&quot;array&quot;, @OA\Items($SUGGESTIONS$))&#10;" description="Property ARRAY" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="SUGGESTIONS" expression="enum(&quot;&quot;,&quot;type=\&quot;string\&quot;&quot;,&quot;type=\&quot;number\&quot;&quot;,&quot;type=\&quot;integer\&quot;&quot;,&quot;type=\&quot;boolean\&quot;&quot;,&quot;ref=\&quot;#/components/schemas/TODO\&quot;&quot;,&quot;type=\&quot;array\&quot;, @OA\Items()&quot;,&quot;type=\&quot;array\&quot;, @OA\Items(type=\&quot;string\&quot;)&quot;,&quot;type=\&quot;array\&quot;, @OA\Items(ref=\&quot;#/components/schemas/TODO\&quot;)&quot;)" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="get1" value="@OA\Get(&#10;*     path=&quot;/$SCHEMA$s/{$PARAMETER$_id}&quot;,&#10;*     summary=&quot;Get one $TITLE$ by id&quot;,&#10;*     tags={&quot;$END$$TITLE$s&quot;},&#10;*     description=&quot;Get one $TITLE$ resrource by id&quot;,&#10;*     operationId=&quot;get$OPERATION$&quot;,&#10;*     @OA\Parameter(ref=&quot;#/components/parameters/$PARAMETER$_id&quot;),&#10;*     @OA\Response(&#10;*         response=200,&#10;*         description=&quot;Successful operation&quot;,&#10;*         @OA\JsonContent(&#10;*             @OA\Property(property=&quot;data&quot;, ref=&quot;#/components/schemas/$SCHEMA$&quot;),&#10;*             @OA\Property(property=&quot;included&quot;, type=&quot;array&quot;, @OA\Items(type=&quot;object&quot;)),&#10;*             @OA\Property(property=&quot;meta&quot;, ref=&quot;#/components/schemas/defaultMeta&quot;)&#10;*         )&#10;*     ),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="GET ONE resource" toReformat="true" toShortenFQNames="true">
+    <variable name="SCHEMA" expression="decapitalize(groovyScript(&quot;return _1.take(_1.length()-1)&quot;, phpClassName()))" defaultValue="" alwaysStopAt="false" />
+    <variable name="TITLE" expression="spaceSeparated(PARAMETER)" defaultValue="" alwaysStopAt="false" />
+    <variable name="OPERATION" expression="capitalize(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <variable name="PARAMETER" expression="snakeCase(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="get2" value="@OA\Get(&#10;*     path=&quot;/$SCHEMA$s&quot;,&#10;*     summary=&quot;Get the list of $TITLE$s&quot;,&#10;*     tags={&quot;$END$$TITLE$s&quot;},&#10;*     description=&quot;Get the list of $TITLE$s resources&quot;,&#10;*     operationId=&quot;get$OPERATION$sList&quot;,&#10;*     @OA\Response(&#10;*         response=200,&#10;*         description=&quot;Successful operation&quot;,&#10;*         @OA\JsonContent(&#10;*             @OA\Property(property=&quot;data&quot;, type=&quot;array&quot;, @OA\Items(ref=&quot;#/components/schemas/$SCHEMA$&quot;)),&#10;*             @OA\Property(property=&quot;included&quot;, type=&quot;array&quot;, @OA\Items(type=&quot;object&quot;)),&#10;*             @OA\Property(property=&quot;meta&quot;, ref=&quot;#/components/schemas/defaultMeta&quot;)&#10;*         )&#10;*     ),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="GET LIST of resources" toReformat="true" toShortenFQNames="true">
+    <variable name="SCHEMA" expression="decapitalize(groovyScript(&quot;return _1.take(_1.length()-1)&quot;, phpClassName()))" defaultValue="" alwaysStopAt="false" />
+    <variable name="TITLE" expression="spaceSeparated(snakeCase(SCHEMA))" defaultValue="" alwaysStopAt="false" />
+    <variable name="OPERATION" expression="capitalize(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="post" value="@OA\Post(&#10;*     path=&quot;/$SCHEMA$s&quot;,&#10;*     tags={&quot;$END$$TITLE$s&quot;},&#10;*     summary=&quot;Create a new $TITLE$&quot;,&#10;*     operationId=&quot;create$OPERATION$&quot;,&#10;*     @OA\RequestBody(&#10;*         @OA\JsonContent(&#10;*             description=&quot;A new $TITLE$ resource&quot;,&#10;*             ref=&quot;#/components/schemas/$SCHEMA$&quot;&#10;*         )&#10;*     ),&#10;*     @OA\Response(&#10;*         response=201,&#10;*         description=&quot;A new $TITLE$ created&quot;,&#10;*         @OA\JsonContent(ref=&quot;#/components/schemas/$SCHEMA$&quot;)&#10;*     ),&#10;*     @OA\Response(response=422, ref=&quot;#/components/responses/422&quot;),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="POST" toReformat="true" toShortenFQNames="true">
+    <variable name="SCHEMA" expression="decapitalize(groovyScript(&quot;return _1.take(_1.length()-1)&quot;, phpClassName()))" defaultValue="" alwaysStopAt="false" />
+    <variable name="TITLE" expression="spaceSeparated(snakeCase(SCHEMA))" defaultValue="" alwaysStopAt="false" />
+    <variable name="OPERATION" expression="capitalize(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="del" value="@OA\Delete(&#10;*     path=&quot;/$SCHEMA$s/{$PARAMETER$_id}&quot;,&#10;*     summary=&quot;Delete a $TITLE$ by id&quot;,&#10;*     tags={&quot;$END$$TITLE$s&quot;},&#10;*     description=&quot;Delete a $TITLE$ by id&quot;,&#10;*     operationId=&quot;delete$OPERATION$&quot;,&#10;*     @OA\Parameter(ref=&quot;#/components/parameters/$PARAMETER$_id&quot;),&#10;*     @OA\Response(response=204, ref=&quot;#/components/responses/204&quot;),&#10;*     @OA\Response(response=404, ref=&quot;#/components/responses/404&quot;),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="DELETE" toReformat="true" toShortenFQNames="true">
+    <variable name="SCHEMA" expression="decapitalize(groovyScript(&quot;return _1.take(_1.length()-1)&quot;, phpClassName()))" defaultValue="" alwaysStopAt="false" />
+    <variable name="PARAMETER" expression="snakeCase(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <variable name="TITLE" expression="spaceSeparated(PARAMETER)" defaultValue="" alwaysStopAt="false" />
+    <variable name="OPERATION" expression="capitalize(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="refp" value="@OA\Parameter(ref=&quot;#/components/parameters/$AUTOCOMPLETE$&quot;)," description="Parameter REF" toReformat="true" toShortenFQNames="true">
+    <variable name="AUTOCOMPLETE" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="res" value="@OA\Schema(&#10;*     schema=&quot;$SCHEMA$Identifier&quot;,&#10;*     description=&quot;$TITLE$ identifier&quot;,&#10;*     title=&quot;$TITLE$ resource identifier&quot;,&#10;*     @OA\Property(property=&quot;id&quot;, type=&quot;string&quot;, nullable=false, minLength=18, maxLength=18, example=&quot;$END$&quot;),&#10;*     @OA\Property(property=&quot;type&quot;, type=&quot;string&quot;, nullable=false, example=&quot;$SCHEMA$&quot;)&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$&quot;,&#10;*     description=&quot;$TITLE$ resource&quot;,&#10;*     title=&quot;$TITLE$&quot;,&#10;*     allOf={@OA\Schema(ref=&quot;#/components/schemas/$SCHEMA$Identifier&quot;)},&#10;*     @OA\Property(property=&quot;attributes&quot;, ref=&quot;#/components/schemas/$SCHEMA$Attributes&quot;),&#10;*     @OA\Property(property=&quot;links&quot;, ref=&quot;#/components/schemas/$SCHEMA$Links&quot;),&#10;*     @OA\Property(property=&quot;relationships&quot;, ref=&quot;#/components/schemas/$SCHEMA$Relationships&quot;),&#10;*     @OA\Property(property=&quot;meta&quot;, ref=&quot;#/components/schemas/$SCHEMA$Meta&quot;)&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Attributes&quot;,&#10;*     description=&quot;$TITLE$ resource attributes&quot;,&#10;*     title=&quot;$TITLE$ attributes&quot;,&#10;*     str&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Links&quot;,&#10;*     description=&quot;$TITLE$ links&quot;,&#10;*     title=&quot;$TITLE$ resource links&quot;,&#10;*     @OA\Property(property=&quot;self&quot;, type=&quot;string&quot;, format=&quot;uri&quot;, nullable=false, minLength=&quot;1&quot;, maxLength=&quot;100&quot;, example=&quot;$SELF_LINK$&quot;),&#10;*     uri&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Relationships&quot;,&#10;*     description=&quot;$TITLE$ relationships&quot;,&#10;*     title=&quot;$TITLE$ resource relationships&quot;,&#10;*     arr&#10;*     prop&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Meta&quot;,&#10;*     description=&quot;$TITLE$ resource meta&quot;,&#10;*     title=&quot;$TITLE$ meta&quot;,&#10;*     bool&#10;* )" description="RESOURCE schema" toReformat="true" toShortenFQNames="true">
+    <variable name="SCHEMA" expression="decapitalize(substringBefore(phpClassName(), &quot;Builder&quot;))" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="TITLE" expression="capitalize(spaceSeparated(snakeCase(SCHEMA)))" defaultValue="" alwaysStopAt="false" />
+    <variable name="SELF_LINK" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="uri" value="@OA\Property(&#10;*         property=&quot;$NAME$&quot;,&#10;*         @OA\Property(property=&quot;href&quot;, type=&quot;string&quot;, format=&quot;uri&quot;, nullable=false, example=&quot;$END$&quot;),&#10;*         @OA\Property(&#10;*             property=&quot;$NAME$&quot;,&#10;*             @OA\Property(property=&quot;method&quot;, type=&quot;string&quot;, format=&quot;&quot;, nullable=false, example=&quot;$METHOD$&quot;)&#10;*         )&#10;*     )" description="Property URI" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="camelCase(clipboard())" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="METHOD" expression="enum(&quot;POST&quot;,&quot;PUT&quot;,&quot;DELETE&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="put" value="@OA\Put(&#10;*     path=&quot;/$SCHEMA$s/{$PARAMETER$_id}&quot;,&#10;*     tags={&quot;$END$$TITLE$s&quot;},&#10;*     summary=&quot;Update an existing $TITLE$&quot;,&#10;*     operationId=&quot;update$OPERATION$&quot;,&#10;*     @OA\Parameter(ref=&quot;#/components/parameters/$PARAMETER$_id&quot;),&#10;*     @OA\RequestBody(&#10;*         @OA\JsonContent(ref=&quot;#/components/schemas/$SCHEMA$&quot;)&#10;*     ),&#10;*     @OA\Response(&#10;*         response=200,&#10;*         description=&quot;Content updated&quot;,&#10;*         @OA\JsonContent(ref=&quot;#/components/schemas/$SCHEMA$&quot;)&#10;*     ),&#10;*     @OA\Response(response=404, ref=&quot;#/components/responses/404&quot;),&#10;*     @OA\Response(response=422, ref=&quot;#/components/responses/422&quot;),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="PUT" toReformat="true" toShortenFQNames="true">
+    <variable name="SCHEMA" expression="decapitalize(groovyScript(&quot;return _1.take(_1.length()-1)&quot;, phpClassName()))" defaultValue="" alwaysStopAt="false" />
+    <variable name="PARAMETER" expression="snakeCase(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <variable name="TITLE" expression="spaceSeparated(PARAMETER)" defaultValue="" alwaysStopAt="false" />
+    <variable name="OPERATION" expression="capitalize(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="patch" value="@OA\Patch(&#10;*     path=&quot;/$SCHEMA$/$PARAMETER$_id&quot;,&#10;*     tags={&quot;$TITLE$s&quot;},&#10;*     summary=&quot;Update $TITLE$&quot;,&#10;*     operationId=&quot;update$OPERATION$&quot;,&#10;*     parr&#10;*     @OA\RequestBody(&#10;*         @OA\JsonContent(&#10;*             &#10;*         )&#10;*     ),&#10;*     @OA\Response(response=204, ref=&quot;#/components/responses/204&quot;),&#10;*     @OA\Response(response=404, ref=&quot;#/components/responses/404&quot;),&#10;*     @OA\Response(response=422, ref=&quot;#/components/responses/422&quot;),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="PATCH" toReformat="true" toShortenFQNames="true">
+    <variable name="SCHEMA" expression="decapitalize(groovyScript(&quot;return _1.take(_1.length()-1)&quot;, phpClassName()))" defaultValue="" alwaysStopAt="false" />
+    <variable name="PARAMETER" expression="snakeCase(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <variable name="TITLE" expression="spaceSeparated(snakeCase(SCHEMA))" defaultValue="" alwaysStopAt="false" />
+    <variable name="OPERATION" expression="capitalize(SCHEMA)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="PHP Comment" value="true" />
+      <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+</templateSet>

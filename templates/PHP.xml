@@ -1,0 +1,7 @@
+<templateSet group="PHP">
+  <template name="proref" value="tet" description="OpenAPI Property with ref" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP Class Member" value="true" />
+    </context>
+  </template>
+</templateSet>

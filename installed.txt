@@ -1,0 +1,9 @@
+FrameSwitcher
+com.intellij.ideolog
+com.kalessil.phpStorm.phpInspectionsEA
+de.espend.idea.laravel
+de.espend.idea.php.annotation
+git-commit-message-plugin
+gr.jchrist.gitextender
+ru.adelf.idea.dotenv
+zielu.gittoolbox
