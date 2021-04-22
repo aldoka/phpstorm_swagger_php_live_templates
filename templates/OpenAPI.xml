@@ -116,7 +116,7 @@
     </context>
   </template>
   <template name="res" value="@OA\Schema(&#10;*     schema=&quot;$SCHEMA$Identifier&quot;,&#10;*     description=&quot;$TITLE$ identifier&quot;,&#10;*     title=&quot;$TITLE$ resource identifier&quot;,&#10;*     @OA\Property(property=&quot;id&quot;, type=&quot;string&quot;, nullable=false, minLength=18, maxLength=18, example=&quot;$END$&quot;),&#10;*     @OA\Property(property=&quot;type&quot;, type=&quot;string&quot;, nullable=false, example=&quot;$SCHEMA$&quot;)&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$&quot;,&#10;*     description=&quot;$TITLE$ resource&quot;,&#10;*     title=&quot;$TITLE$&quot;,&#10;*     allOf={@OA\Schema(ref=&quot;#/components/schemas/$SCHEMA$Identifier&quot;)},&#10;*     @OA\Property(property=&quot;attributes&quot;, ref=&quot;#/components/schemas/$SCHEMA$Attributes&quot;),&#10;*     @OA\Property(property=&quot;links&quot;, ref=&quot;#/components/schemas/$SCHEMA$Links&quot;),&#10;*     @OA\Property(property=&quot;relationships&quot;, ref=&quot;#/components/schemas/$SCHEMA$Relationships&quot;),&#10;*     @OA\Property(property=&quot;meta&quot;, ref=&quot;#/components/schemas/$SCHEMA$Meta&quot;)&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Attributes&quot;,&#10;*     description=&quot;$TITLE$ resource attributes&quot;,&#10;*     title=&quot;$TITLE$ attributes&quot;,&#10;*     str&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Links&quot;,&#10;*     description=&quot;$TITLE$ links&quot;,&#10;*     title=&quot;$TITLE$ resource links&quot;,&#10;*     @OA\Property(property=&quot;self&quot;, type=&quot;string&quot;, format=&quot;uri&quot;, nullable=false, minLength=&quot;1&quot;, maxLength=&quot;100&quot;, example=&quot;$SELF_LINK$&quot;),&#10;*     uri&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Relationships&quot;,&#10;*     description=&quot;$TITLE$ relationships&quot;,&#10;*     title=&quot;$TITLE$ resource relationships&quot;,&#10;*     arr&#10;*     prop&#10;* )&#10;*&#10;* @OA\Schema(&#10;*     schema=&quot;$SCHEMA$Meta&quot;,&#10;*     description=&quot;$TITLE$ resource meta&quot;,&#10;*     title=&quot;$TITLE$ meta&quot;,&#10;*     bool&#10;* )" description="RESOURCE schema" toReformat="true" toShortenFQNames="true">
-    <variable name="SCHEMA" expression="decapitalize(substringBefore(phpClassName(), &quot;Builder&quot;))" defaultValue="&quot;TODO&quot;" alwaysStopAt="false" />
+    <variable name="SCHEMA" expression="decapitalize(substringBefore(phpClassName(), &quot;Builder&quot;))" defaultValue="clipboard()" alwaysStopAt="false" />
     <variable name="TITLE" expression="capitalize(spaceSeparated(snakeCase(SCHEMA)))" defaultValue="" alwaysStopAt="false" />
     <variable name="SELF_LINK" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -142,7 +142,7 @@
       <option name="PHP Expression" value="true" />
     </context>
   </template>
-  <template name="patch" value="@OA\Patch(&#10;*     path=&quot;/$SCHEMA$/$PARAMETER$_id&quot;,&#10;*     tags={&quot;$TITLE$s&quot;},&#10;*     summary=&quot;Update $TITLE$&quot;,&#10;*     operationId=&quot;update$OPERATION$&quot;,&#10;*     parr&#10;*     @OA\RequestBody(&#10;*         @OA\JsonContent(&#10;*             &#10;*         )&#10;*     ),&#10;*     @OA\Response(response=204, ref=&quot;#/components/responses/204&quot;),&#10;*     @OA\Response(response=404, ref=&quot;#/components/responses/404&quot;),&#10;*     @OA\Response(response=422, ref=&quot;#/components/responses/422&quot;),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="PATCH" toReformat="true" toShortenFQNames="true">
+  <template name="patch" value="@OA\Patch(&#10;*     path=&quot;/$SCHEMA$/$PARAMETER$_id&quot;,&#10;*     tags={&quot;$END$TITLE$s&quot;},&#10;*     summary=&quot;Update $TITLE$&quot;,&#10;*     operationId=&quot;update$OPERATION$&quot;,&#10;*     parr&#10;*     @OA\RequestBody(&#10;*         @OA\JsonContent(&#10;*             &#10;*         )&#10;*     ),&#10;*     @OA\Response(response=204, ref=&quot;#/components/responses/204&quot;),&#10;*     @OA\Response(response=404, ref=&quot;#/components/responses/404&quot;),&#10;*     @OA\Response(response=422, ref=&quot;#/components/responses/422&quot;),&#10;*     @OA\Response(response=401, ref=&quot;#/components/responses/401&quot;),&#10;*     @OA\Response(response=403, ref=&quot;#/components/responses/403&quot;),&#10;*     @OA\Response(response=405, ref=&quot;#/components/responses/405&quot;),&#10;*     @OA\Response(response=410, ref=&quot;#/components/responses/410&quot;),&#10;*     @OA\Response(response=429, ref=&quot;#/components/responses/429&quot;)&#10;* )" description="PATCH" toReformat="true" toShortenFQNames="true">
     <variable name="SCHEMA" expression="decapitalize(groovyScript(&quot;return _1.take(_1.length()-1)&quot;, phpClassName()))" defaultValue="" alwaysStopAt="false" />
     <variable name="PARAMETER" expression="snakeCase(SCHEMA)" defaultValue="" alwaysStopAt="false" />
     <variable name="TITLE" expression="spaceSeparated(snakeCase(SCHEMA))" defaultValue="" alwaysStopAt="false" />
@@ -150,6 +150,31 @@
     <context>
       <option name="PHP Comment" value="true" />
       <option name="PHP Expression" value="true" />
+    </context>
+  </template>
+  <template name="eget" value="/**&#10;* get1&#10;* get2&#10;* &#10;* @param PositionedParameter $id&#10;* @return int&#10;*/&#10;public function get(&#10;    PositionedParameter $id&#10;): int&#10;{&#10;&#10;&#10;    return 200;&#10;}" description="Endpoint method GET" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP Class Member" value="true" />
+    </context>
+  </template>
+  <template name="epost" value="/**&#10;* post&#10;*&#10;* @param array $payload&#10;* @return int&#10;*/&#10;public function post(&#10;    array $payload&#10;): int&#10;{&#10;&#10;&#10;    return 201;&#10;}" description="Endpoint method POST" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP Class Member" value="true" />
+    </context>
+  </template>
+  <template name="eput" value="/**&#10; * put&#10; *&#10; * @param array $payload&#10; * @return int&#10; */&#10;public function put(&#10;    array $payload&#10;): int&#10;{&#10;&#10;&#10;    return 200;&#10;}" description="Endoint method PUT" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP Class Member" value="true" />
+    </context>
+  </template>
+  <template name="epatch" value="/**&#10; * patch&#10; *&#10; * @param PositionedParameter $id&#10; * @return int&#10; */&#10;public function patch(&#10;    PositionedParameter $id&#10;): int&#10;{&#10;&#10;&#10;    return 204;&#10;}" description="Endpont method PATCH" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP Class Member" value="true" />
+    </context>
+  </template>
+  <template name="edel" value="/**&#10; * del&#10; *&#10; * @param PositionedParameter $id&#10; * @return int&#10; */&#10;public function delete(&#10;    PositionedParameter $id&#10;): int&#10;{&#10;&#10;&#10;    return 204;&#10;}" description="Endpoint method DEL" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP Class Member" value="true" />
     </context>
   </template>
 </templateSet>
